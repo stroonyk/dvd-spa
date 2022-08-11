@@ -3,6 +3,7 @@
 const ACTION_TYPE = {
     INITIALISE_MOVIES : "INITIALISE_MOVIES",
     NUMBER_MOVIES_CHANGED : "NUMBER_MOVIES_CHANGED",
+    NUMBER_MOVIES_CLEARED : "NUMBER_MOVIES_CLEARED",
     FILTER_MOVIES : "FILTER_MOVIES",
 };
 
@@ -16,11 +17,15 @@ export const moviesActionFactory = {
     createNumberOfMoviesAction : (numberOfMovies) => {
         return {type:ACTION_TYPE.NUMBER_MOVIES_CHANGED, payload : numberOfMovies};
     },
+    createNumberOfMoviesClearedAction : () => {
+        return {type:ACTION_TYPE.NUMBER_MOVIES_CLEARED};
+    },
 };
-
+export const DEFAULT_NUMBER_OF_MOVIES = 1;
 export const moviesInitialState = {
     movies : [],
-    numberOfMovies : 200,
+    numberOfMovies : DEFAULT_NUMBER_OF_MOVIES,
+    uiNumberOfMovies : '',
 };
 
 const moviesReducer = (state,action) => {
@@ -38,6 +43,15 @@ const moviesReducer = (state,action) => {
             return {
                 ...state,
                 numberOfMovies,
+            }
+        }
+        case ACTION_TYPE.NUMBER_MOVIES_CLEARED : {
+            let numberOfMovies = DEFAULT_NUMBER_OF_MOVIES;
+            let uiNumberOfMovies = '';
+            return {
+                ...state,
+                numberOfMovies,
+                uiNumberOfMovies,
             }
         }
         default : 

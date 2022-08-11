@@ -3,7 +3,7 @@ import sidebarBg from '../../../assets/bg_reducer_sidebar.png';
 // import BudgetRangeSlider from './BudgetRangeSlider';
 // import RatingRangeSlider from './RatingRangeSlider';
 // import RuntimeRangeSlider from './RuntimeRangeSlider';
-// import NumberMoviesFilter from "./NumberMoviesFilter";
+ import NumberMoviesFilter from "./NumberMoviesFilter";
 // import DateStartFilter from "./DateStartFilter";
 // import DateEndFilter from "./DateEndFilter";
 // import SelectGenreVariant from './SelectGenreVarient';
@@ -21,8 +21,8 @@ const MoviesFilter = () => {
             <div className="sidebar-div">Filters - Reducer</div>
           </SidebarHeader>
           <SidebarContent>
-            {/* <NumberMoviesFilter />
-            <DateStartFilter  />
+            <NumberMoviesFilter />
+            {/* <DateStartFilter  />
             <DateEndFilter />
             <BudgetRangeSlider />
             <RatingRangeSlider />
