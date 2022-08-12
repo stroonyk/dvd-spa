@@ -5,12 +5,12 @@ import MoviesFilter from "../components/ui/reducer/MoviesFilter";
 
 const MovieSearchReducer = () => {
     return (
-        <MoviesProvider >
+         <MoviesProvider >
             <MoviesFilter />
             <Segment className="outer-div reducer" textAlign="center">
-              <MovieList />
-            </Segment> 
-        </MoviesProvider>
+              <MovieList /> 
+            </Segment>        
+         </MoviesProvider>
      
     );
 }
