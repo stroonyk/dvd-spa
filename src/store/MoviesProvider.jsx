@@ -97,7 +97,15 @@ const MoviesProvider = ({children}) => {
         let status = e.target.value;
         const action = moviesActionFactory.createSelectedStatusChangedAction(status);
         moviesDispatch(action);
+    }
+    const selectedMovieLikedHandler = (id) => {
+        const action = moviesActionFactory.createMovieLikedChangedAction(id);
+        moviesDispatch(action);
     }     
+    const selectedMovieDisikedHandler = (id) => {
+        const action = moviesActionFactory.createMovieDislikedChangedAction(id);
+        moviesDispatch(action);
+    }               
     /*
     * Heres our context object. State is nicely saved as is 
     * Just expose our handlers
@@ -115,6 +123,8 @@ const MoviesProvider = ({children}) => {
         selectedLanguageChanged : selectedLanguageChangedHandler,
         selectedGenreChanged : selectedGenreChangedHandler,
         selectedStatusChanged : selectedStatusChangedHandler,
+        selectedMovieLiked : selectedMovieLikedHandler,
+        selectedMoiveDisliked : selectedMovieDisikedHandler,
     };
     // just wrap our children in our context provider
     return (

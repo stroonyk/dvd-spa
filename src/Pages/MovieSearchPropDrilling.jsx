@@ -141,7 +141,7 @@ return (
         <Segment className="outer-div prop-drilling" textAlign="center">
           <MovieList movies={movies} onMovieLikedHandler={onMovieLikedHandler} 
             onMovieDislikedHandler={onMovieDislikedHandler}
-            liked={liked} unliked={disliked} 
+            liked={liked} disliked={disliked} 
           />
         </Segment>
     </>

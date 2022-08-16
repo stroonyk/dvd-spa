@@ -12,10 +12,10 @@ import MovieCard from "./MovieCard";
              movie={movie}
              movieId={movie.id}
              key={movie.id}
-             onMovieLiked={props.onMovieLikedHandler}
-             onMovieDisliked={props.onMovieDislikedHandler}
+             onMovieLikedHandler={props.onMovieLikedHandler}
+             onMovieDislikedHandler={props.onMovieDislikedHandler}
              liked={props.liked}
-             disliked={props.unliked}
+             disliked={props.disliked}
          />)}
         </Card.Group>
      );

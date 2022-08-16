@@ -5,7 +5,7 @@ import { faker } from "@faker-js/faker";
 /*
 * Our main MovieCard component. 
 */
-const MovieCard = ({movie,movieId,onMovieLiked,onMovieDisliked,liked,disliked}) => {
+const MovieCard = ({movie,movieId,onMovieLikedHandler,onMovieDislikedHandler,liked,disliked}) => {
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
   const [movieImage, setMovieImage] = useState(faker.image.cats(250, 250, true))
@@ -13,11 +13,11 @@ const MovieCard = ({movie,movieId,onMovieLiked,onMovieDisliked,liked,disliked}) 
   * handle the liked and disliked buttons being clicked using state
   */
   const handleLiked = () => {
-      onMovieLiked(movieId)
+      onMovieLikedHandler(movieId)
       forceUpdate();
   }
   const handleDisliked = () => {
-      onMovieDisliked(movieId)
+      onMovieDislikedHandler(movieId)
       forceUpdate();      
   }   
 

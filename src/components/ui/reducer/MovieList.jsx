@@ -10,7 +10,12 @@ const MovieList = () => {
     const moviesCtx = useContext(MoviesContext);
     return (
         <>
-            <GenericMovieList movies={moviesCtx.movies} />
+            <GenericMovieList movies={moviesCtx.movies} 
+                onMovieLikedHandler={moviesCtx.selectedMovieLiked}
+                onMovieDislikedHandler={moviesCtx.selectedMoiveDisliked}
+                liked={moviesCtx.liked}
+                disliked={moviesCtx.disliked}                
+            />
         </>
     );
 }

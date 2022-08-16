@@ -22,6 +22,8 @@ const ACTION_TYPE = {
     SELECTED_GENRE_CHANGED : "SELECTED_GENRES_CHANGED",
     SELECTED_LANGUAGE_CHANGED : "SELECTED_LANGUAGES_CHANGED",
     SELECTED_STATUS_CHANGED : "SELECTED_STATUS_CHANGED",
+    MOVIE_LIKED_CHANGED : "MOVIE_LIKED_CHANGED",
+    MOVIE_DISLIKED_CHANGED : "MOVIE_DISLIKED_CHANGED",
     FILTER_MOVIES : "FILTER_MOVIES",
 };
 
@@ -71,7 +73,13 @@ export const moviesActionFactory = {
     },                              
     createSelectedStatusChangedAction : (selectedStatus) => {
         return {type:ACTION_TYPE.SELECTED_STATUS_CHANGED, payload : selectedStatus};
-    },      
+    }, 
+    createMovieLikedChangedAction : (selectedMovieId) => {
+        return {type:ACTION_TYPE.MOVIE_LIKED_CHANGED, payload : selectedMovieId};
+    },           
+    createMovieDislikedChangedAction : (selectedMovieId) => {
+        return {type:ACTION_TYPE.MOVIE_DISLIKED_CHANGED, payload : selectedMovieId};
+    },     
 };
 
 // our exposed initial state
@@ -91,6 +99,8 @@ export const moviesInitialState = {
     genres : [],
     languages : [],
     statuses : [],
+    liked : new Map(),
+    disliked : new Map(),
 };
 
 /*
@@ -200,7 +210,31 @@ const moviesReducer = (state,action) => {
                 ...state,
                 selectedStatus,
             }
-        }                                                        
+        } 
+        case ACTION_TYPE.MOVIE_LIKED_CHANGED : {
+            let id = action.payload;
+            if (state.liked.get(id)){        
+                state.liked.delete(id)
+            } else {    
+                state.disliked.delete(id);            
+                state.liked.set(id,true);  
+            }            
+            return {
+                ...state
+            }
+        }   
+        case ACTION_TYPE.MOVIE_DISLIKED_CHANGED : {
+            let id = action.payload;
+            if (state.disliked.get(id)){        
+                state.disliked.delete(id)
+            } else {    
+                state.liked.delete(id);            
+                state.disliked.set(id,true);  
+            }            
+            return {
+                ...state
+            }
+        }                                                                         
         default : 
             throw new Error('menu reducer: unknown action type');
     }

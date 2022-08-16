@@ -6,7 +6,7 @@ import GenericMovieList from "../core/GenericMovieList";
 const MovieList = (props) => {
     return (
         <GenericMovieList movies={props.movies} 
-            onMovieLikedHandler={props.handleMoviesLiked}
+            onMovieLikedHandler={props.onMovieLikedHandler}
             onMovieDislikedHandler={props.onMovieDislikedHandler}
             liked={props.liked}
             disliked={props.disliked}
