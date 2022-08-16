@@ -2,8 +2,9 @@ import RangeSlider from "../core/RangeSlider";
 import { useContext } from "react";
 import MoviesContext from "../../../store/movies-context";
 /*
-* just a wrapper for our slider widget using the customhook and default properties to stop
-* the sliders overlapping and to mark the slider points
+* just a wrapper for our select widget using the context provider/reducer
+* 
+* Use default properties to stop the sliders overlapping and to mark the slider points
 */
 const RATING_MIN_DISTANCE = 1;
 

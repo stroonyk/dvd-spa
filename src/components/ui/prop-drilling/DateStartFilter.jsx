@@ -1,6 +1,7 @@
 import DateFilter from "../core/DateFilter";
+
 /*
-* just a wrapper for our start date widget using the customhook
+* Our component using Prop Drilling
 */
 const DateStartFilter = (props) => {
     return (

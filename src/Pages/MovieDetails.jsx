@@ -1,6 +1,7 @@
 
 import DetailedMovie from "../components/ui/core/DetailedMovie";
-import {useParams} from 'react-router'
+import {useParams} from 'react-router';
+
 /*
 * This is our detailed movie wrapper
 */
@@ -9,5 +10,5 @@ const DetailedMovieWrapper = () => {
     return (
       <DetailedMovie id={id} />
     )
-  }
+}
 export default DetailedMovieWrapper;

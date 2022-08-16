@@ -1,5 +1,12 @@
+/*
+* This is our bad boy reducer. It abstacts away the state manipulation from
+* our context and our components
+* 1. Localise all our ACTION_TYPES
+* 2. Expose an action factory for creating actions by the Provider
+* 3. Expose and initialise our Inital State
+*/
 
-
+// Our action types
 const ACTION_TYPE = {
     INITIALISE_MOVIES : "INITIALISE_MOVIES",
     INITIALISE_LANGUAGES : "INITIALISE_LANGUAGES",
@@ -18,6 +25,7 @@ const ACTION_TYPE = {
     FILTER_MOVIES : "FILTER_MOVIES",
 };
 
+// Our exposed factory/
 export const moviesActionFactory = {
     createInitialiseMoviesAction : (movies) => {
         return { type : ACTION_TYPE.INITIALISE_MOVIES, payload : movies};
@@ -65,6 +73,8 @@ export const moviesActionFactory = {
         return {type:ACTION_TYPE.SELECTED_STATUS_CHANGED, payload : selectedStatus};
     },      
 };
+
+// our exposed initial state
 export const DEFAULT_NUMBER_OF_MOVIES = 200;
 export const moviesInitialState = {
     movies : [],
@@ -72,7 +82,7 @@ export const moviesInitialState = {
     uiNumberOfMovies : '',
     selectedStartDate : '',
     selectedEndDate : '',
-    selectedBudget : [50, 300],
+    selectedBudget : [0, 350],
     selectedRating : [0, 10] ,
     selectedRuntime : [0, 180] ,
     selectedLanguage : '',
@@ -81,11 +91,13 @@ export const moviesInitialState = {
     genres : [],
     languages : [],
     statuses : [],
-    
 };
 
+/*
+* What everyone has been waiting for. THe meat of the reducer. 
+* Just a massive switch to create a new state object depending on the action
+*/
 const moviesReducer = (state,action) => {
-
     switch (action.type){
         case ACTION_TYPE.INITIALISE_MOVIES : {
             let movies= [...action.payload];
@@ -108,7 +120,6 @@ const moviesReducer = (state,action) => {
                 genres,
             }
         }
-
         case ACTION_TYPE.INITIALISE_STATUSES : {
             let statuses = [...action.payload];
             return {

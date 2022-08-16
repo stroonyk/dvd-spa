@@ -1,5 +1,6 @@
 import RangeSlider from "../core/RangeSlider";
 import {default as useMovies} from "../../../contexts/useMovies";
+
 /*
 * just a wrapper for our slider widget using the customhook and default properties to stop
 * the sliders overlapping and to mark the slider points
@@ -12,6 +13,7 @@ const RATING_MARKS = [{value: 0,label: '0',},{value: 1,label: '1',},{value: 2,la
         {value: 9,label: '9',},{value: 10,label: '10',}];
 
 const BudgetRangeSlider = (props) => {
+    // get our values from our customhook
     const {selectedRating,handleRatingSelected} = useMovies();
     return (
         <RangeSlider title="Rating" marks={RATING_MARKS} step={1} min={0} max={10} 

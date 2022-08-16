@@ -1,5 +1,6 @@
 import RangeSlider from "../core/RangeSlider";
 import {default as useMovies} from "../../../contexts/useMovies";
+
 /*
 * just a wrapper for our slider widget using the customhook and default properties to stop
 * the sliders overlapping and to mark the slider points
@@ -12,6 +13,7 @@ const RUNTIME_MARKS = [{value: 0,label: '0',},{value: 20,label: '20m',},{value: 
     {value: 180,label: '180m',},{value: 200,label: '200m',}];
 
 const RuntimeRangeSlider = (props) => {
+    // get our values from our customhook
     const {selectedRuntime,handleRuntimeSelected} = useMovies();
     return (
         <RangeSlider title="Runtime" marks={RUNTIME_MARKS} step={20} min={0} max={200} 

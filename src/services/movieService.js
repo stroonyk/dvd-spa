@@ -3,88 +3,6 @@
 /*
 * this just returns a filtered list of movies based on our parameters
 */
-export const filterMoviesAsyncReducer = (recordCount, startdate, enddate, budget, runtime,  rating) => {
-    // our callback
-    return new Promise(resolve => {
-      let filteredMovies = movieData;
-        // cut down based on how many movies we want to show and return
-        // filter based on start/end date
-        if (startdate || enddate){
-          let filterEndDate = enddate ? new Date(enddate).getTime() : new Date().getTime();
-          let filterStartDate = startdate ? new Date(startdate).getTime() : null ;   
-          filteredMovies = filteredMovies.filter(movie => {
-            let releaseDate = new Date(movie.release_date).getTime();       
-            if (filterEndDate && filterStartDate){
-              return (releaseDate >= filterStartDate && releaseDate <= filterEndDate);   
-            } else if (filterStartDate){
-              return (releaseDate >= filterStartDate);  
-            } else if (filterEndDate){
-              return (releaseDate <= filterEndDate);  
-            } else {  
-              return false;
-            }                
-          })
-        }         
-        
-        // filter based on budget
-        let budgetFrom = budget[0];
-        let budgetTo = budget[1];
-        filteredMovies = filteredMovies.filter(movie => {
-          let movieBudget = movie.budget / 1000000;  
-          return (movieBudget >= budgetFrom && movieBudget<= budgetTo); 
-        }); 
-
-        // filter based on rating
-        let ratingFrom = rating[0];
-        let ratingTo = rating[1];
-        filteredMovies = filteredMovies.filter(movie =>       
-            movie.vote_average >= ratingFrom && movie.vote_average <= ratingTo 
-        ); 
-
-        // filter based on runtime
-        let runtimeFrom = runtime[0];
-        let runtimeTo = runtime[1];
-        filteredMovies = filteredMovies.filter(movie =>       
-            movie.runtime >= runtimeFrom && movie.runtime <= runtimeTo 
-        );    
-
-        filteredMovies = filteredMovies.slice(0, recordCount)
-        resolve(filteredMovies)
-    });
-}
-// export const filterMoviesAsyncNewFilter = (genre, language, status, budget, rating, runtime, startdate, enddate, recordCount) => {
-//   return new Promise(resolve => {
-//     let filters = {};
-//     if (genre) filters.genre = genre;
-//     if (language) filters.language = language;
-//     if (status) filters.status = status;
-//     if (budget) filters.budget = budget;
-//     if (rating) filters.rating = rating;
-//     if (runtime) filters.runtime = runtime;
-//     if (startdate) filters.startdate = startdate;
-//     if (enddate) filters.enddate = enddate;
-
-//     let filteredMovies = movieData;
-
-//     let budgetFrom = budget[0];
-//     let budgetTo = budget[1];
-//     let ratingFrom = rating[0];
-//     let ratingTo = rating[1];
-//     let runtimeFrom = runtime[0];
-//     let runtimeTo = runtime[1];
-
-//     filteredMovies = filteredMovies.filter(movie => {
-//       console.log('here');
-//       let movieBudget = movie.budget / 1000000;  
-//       return (movieBudget >= budgetFrom && movieBudget<= budgetTo) && 
-//       (movie.vote_average >= ratingFrom && movie.vote_average <= ratingTo ) &&
-//       (movie.runtime >= runtimeFrom && movie.runtime <= runtimeTo ); 
-//     }); 
-
-//     console.log(filters);
-//     resolve(filteredMovies)
-// })
-// }
 export const filterMoviesAsync = (genre, language, status, budget, rating, runtime, startdate, enddate, recordCount) => {
 
     // our callback
@@ -109,7 +27,6 @@ export const filterMoviesAsync = (genre, language, status, budget, rating, runti
               return found;
           })
         }
-        
         // filter based on status
         if (status){
           filteredMovies = filteredMovies.filter(movie => 
@@ -166,7 +83,6 @@ export const filterMoviesAsync = (genre, language, status, budget, rating, runti
 
         // cut down based on how many movies we want to show and return
         filteredMovies = filteredMovies.slice(0, recordCount);
-
         
         resolve(filteredMovies)
     })

@@ -5,17 +5,23 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
 import Menu from '@mui/material/Menu';
 import { Link } from 'react-router-dom';
 
-
+/*
+* This is just our drop down menu item for selecting our different methods of showing movies
+* 1. We can prop drill
+* 2. We can use a custom hook with context
+* 3  We can use a reducer with context
+*/
 const pages = [{'page':"Prop Drilling",'link':'/prop-drilling'}, {'page':"Custom Hook",'link':'/custom-hook'},
               {'page':'Reducer','link':'/reducer'}];
 
 export default function MenuAppBar() {
+  // store our selection here
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
+  // handle our clicks
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -64,7 +70,6 @@ export default function MenuAppBar() {
               ))}
             </Menu>
         </Toolbar>
-       
       </AppBar> 
       </Box>
   );

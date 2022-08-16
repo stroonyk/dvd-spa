@@ -10,7 +10,7 @@ import DateStartFilter from './DateStartFilter';
 import DateEndFilter from './DateEndFilter';
 
 /*
-* our sidebar component with all the filter components
+* our sidebar component with all the filter components. Nice and messy due to Prop Drilling! :) 
 */
 const MoviesFilter = (props) => {
     return (

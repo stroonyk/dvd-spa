@@ -10,8 +10,10 @@ import SelectGenreVariant from './SelectGenreVarient';
 import SelectLanguageVariant from './SelectLanguageVariant';
 import SelectStatusVariant from './SelectStatusVariant';
 import MenuAppBar from '../core/MenuAppBar';
+
 /*
-* our sidebar component with all the filter components using Context and a custom hook
+* Our sidebar component with all the filter components using Context and a custom hook
+* No need for prop drilling!
 */
 const MoviesFilter = () => {
     return (

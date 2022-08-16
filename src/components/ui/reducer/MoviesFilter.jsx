@@ -11,7 +11,8 @@ import SelectLanguageVariant from './SelectLanguageVariant';
 import SelectStatusVariant from './SelectStatusVariant';
 import MenuAppBar from '../core/MenuAppBar';
 /*
-* our sidebar component with all the filter components using Context and a custom hook
+* our sidebar component with all the filters. We're contained within a Provider
+* which allows the components to use it and then the Reducer. No need for Prop Drilling!
 */
 const MoviesFilter = () => {
     return (

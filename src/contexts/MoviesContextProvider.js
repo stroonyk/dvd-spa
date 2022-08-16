@@ -1,9 +1,19 @@
 import React, {useState, useContext, useEffect} from "react";
 import {filterMoviesAsync, getMovieFilters } from '../services/movieService';
 
+/*
+* This is our wrapper for the context provider
+* 1. We create our context
+* 2. Expose the context
+* 3. Initialise our states
+* 4. use side effects to gather our movie and filter data
+* 5. Create the context object for the Provider
+*/
 
+// our context 
 const MoviesContext = React.createContext({})
 
+// we export this
 const useMoviesContext = () => {
     const context = useContext(MoviesContext);
     if (!context){
@@ -12,6 +22,7 @@ const useMoviesContext = () => {
     return context;
 }
 
+//  our provider with state and values
 const MoviesProvider = (props) => {
     const DEFAULT_NUMBER_OF_MOVIES = 200;
     const [numberOfMovies, setNumberOfMovies] = useState(DEFAULT_NUMBER_OF_MOVIES);
@@ -31,8 +42,8 @@ const MoviesProvider = (props) => {
     const [liked,setLiked] = useState(new Map());
     const [disliked,setDisliked] = useState(new Map());
 
+    // get our filters
     useEffect(() => {
-        // get our filters
         let filters = getMovieFilters();
         
         // assign them to our states for our dropdowns
@@ -41,16 +52,18 @@ const MoviesProvider = (props) => {
         setStatus(filters.statuses);
       },[]);
 
+      // get our movies
       useEffect(() => {
-        //console.log('useeffect');
         const search = async () => {
             let movies = await filterMoviesAsync(selectedGenre, selectedLanguage, selectedStatus,
             selectedBudget,selectedRating,selectedRuntime,selectedStartDate,selectedEndDate,numberOfMovies);
             setMovies(movies)
         }
         search()
-    }, [selectedGenre, selectedLanguage, selectedStatus,selectedBudget,selectedRating,selectedRuntime,selectedStartDate,selectedEndDate,numberOfMovies])
+    }, [selectedGenre, selectedLanguage, selectedStatus,selectedBudget,selectedRating,
+        selectedRuntime, selectedStartDate,selectedEndDate,numberOfMovies])
 
+    // value for our context provider
     const MoviesContextValue = {
         DEFAULT_NUMBER_OF_MOVIES,
         numberOfMovies,

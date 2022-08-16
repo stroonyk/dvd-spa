@@ -2,10 +2,15 @@ import React, { useEffect, useState } from 'react';
 import MoviesFilter from "../components/ui/prop-drilling/MoviesFilter";
 import { Segment } from "semantic-ui-react";
 import MovieList from "../components/ui/prop-drilling/MovieList";
-import {filterMoviesAsync,filterMoviesAsyncNewFilter, getMovieFilters } from '../services/movieService';
+import {filterMoviesAsync, getMovieFilters } from '../services/movieService';
 
 /*
-* our main movie search component
+* For our Prop Drilling component, we have all our state, useeffect and state handling in one place. Here!
+* 1. Initialise our state
+* 2. Gather our data using side effects. 
+* 3. Handle the change of states when components change by the UI
+* 4. Send all the states and handlers into the Filter components using Prop Drilling
+* 5. Same for the Movies List. 
 */
 const MovieSearch = () => {
     const DEFAULT_NUMBER_OF_MOVIES = 200;

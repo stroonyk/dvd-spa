@@ -8,7 +8,6 @@ import MovieSearchPropDrilling from './Pages/MovieSearchPropDrilling';
 import MovieSearchCustomHook from './Pages/MovieSearchCustomHook';
 import MovieSearchReducer from './Pages/MovieSearchReducer';
 import 'react-pro-sidebar/dist/css/styles.css';
-import MovieLanding from './Pages/MovieLanding';
 
 /*
 *   App control now with Routing options
@@ -26,6 +25,7 @@ const App = () => {
     </div>
   )
 }
+
 /*
 * Introducing a router for when clicking on the movie card
 */

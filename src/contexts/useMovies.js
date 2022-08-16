@@ -1,6 +1,7 @@
 import { useMoviesContext } from "./MoviesContextProvider";
+
 /*
-* this is our custom hook for accessing the state variables across our app
+* This is our custom hook for accessing the state variables and handlers across our app
 */
 const useMovies = () => {
     const {
@@ -35,6 +36,10 @@ const useMovies = () => {
         movies
     } = useMoviesContext();
 //#region 
+
+    /*
+    * These are just our handlers to change state
+    */
     const onMovieLikedHandler = (id) => {
         if (liked.get(id)){        
             liked.delete(id)
@@ -85,9 +90,10 @@ const useMovies = () => {
         setSelectedStatus(e.target.value)
     }
 //#endregion
-/*
-* now just return our exposed list of variables and handlers
-*/
+
+    /*
+    * now just return our exposed list of variables and handlers
+    */
     return {
         DEFAULT_NUMBER_OF_MOVIES,
         numberOfMovies,

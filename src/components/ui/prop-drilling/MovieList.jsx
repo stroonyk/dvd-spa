@@ -1,4 +1,5 @@
 import GenericMovieList from "../core/GenericMovieList";
+
 /*
 * Our MoviesList component when using prop drilling
 */

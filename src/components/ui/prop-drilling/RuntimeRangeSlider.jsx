@@ -1,5 +1,8 @@
 import RangeSlider from "../core/RangeSlider";
 
+/*
+* Our component using Prop Drilling
+*/
 const RUNTIME_MIN_DISTANCE = 20;
 
 const RUNTIME_MARKS = [{value: 0,label: '0',},{value: 20,label: '20m',},{value: 40,label: '40m',},

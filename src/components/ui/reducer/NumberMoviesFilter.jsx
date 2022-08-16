@@ -3,7 +3,9 @@ import MoviesContext from "../../../store/movies-context";
 import NumberFilter from '../core/NumberFilter';
 
 /*
-* Our Number of Movies Filter. Does what it says on the tin :)
+* just a wrapper for our select widget using the context provider/reducer
+* 
+* Use default properties to stop the sliders overlapping and to mark the slider points
 */
 const NumberMoviesFilter = () => {
   // get our values from our context

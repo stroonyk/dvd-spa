@@ -9,12 +9,12 @@ import Box from '@mui/material/Box';
 * Just a dropdown list. Populate list with the props array which are the filter options
 */
 const SelectVariant = (props) => {
-  
     // create the select items from the array
     let selectItems = [];
     props.items.forEach(item => {      
       selectItems.push(<MenuItem key={item} value={item}>{item}</MenuItem>);
     })
+    
     return (
       <Box sx={{ width: 280,height:80 }} >
         <FormControl sx={{ m: 1, minWidth: 250,}}>

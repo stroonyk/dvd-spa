@@ -1,5 +1,6 @@
 import { Card } from "semantic-ui-react";
 import MovieCard from "./MovieCard";
+
 /*
 * Our MoviesList component. Just a wrapper for mapping the movies to the MovieCard
 */

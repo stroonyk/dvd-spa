@@ -1,5 +1,8 @@
 import RangeSlider from "../core/RangeSlider";
 
+/*
+* Our component using Prop Drilling
+*/
 const RATING_MIN_DISTANCE = 1;
 
 const RATING_MARKS = [{value: 0,label: '0',},{value: 1,label: '1',},{value: 2,label: '2',},

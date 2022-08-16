@@ -8,10 +8,9 @@ import { faker } from "@faker-js/faker";
 * Our Detailed Movie Component showing more data than the MovieCard
 */
 const DetailedMovie = (props) => {
-  /*
-  * saving the movie to our state
-  */
+  // our movie saved to state
   const [movie,setMovie] = useState([]);
+  
   /*
   * get the movie data
   */
